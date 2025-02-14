@@ -42,5 +42,3 @@ const FullView = () => {
 };
 
 export default FullView;
-
-mv ~/Desktop/MyFolder ~/Documents/
