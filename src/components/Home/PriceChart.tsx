@@ -1,14 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { Maximize2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { ApexOptions } from 'apexcharts';
 
-const PriceChart = ({ isFullView = false }) => {
-  const [chartType, setChartType] = useState('line');
-  const [chartData, setChartData] = useState([]);
+interface PriceChartProps {
+  isFullView?: boolean;
+  onToggleFullscreen: () => void;
+}
+
+type ChartDataPoint = {
+  x: number;
+  y: number | number[];
+};
+
+const PriceChart = ({ isFullView = false, onToggleFullscreen }: PriceChartProps) => {
+  const [chartType, setChartType] = useState<'line' | 'candlestick'>('line');
+  const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
 
   useEffect(() => {
     // Generate mock data
-    const data = [];
+    const data: ChartDataPoint[] = [];
     let price = 93999.09;
     const timestamp = new Date().getTime();
     
@@ -39,7 +51,6 @@ const PriceChart = ({ isFullView = false }) => {
     chart: {
       animations: {
         enabled: true,
-        easing: 'linear',
         dynamicAnimation: {
           speed: 1000
         }
@@ -47,7 +58,7 @@ const PriceChart = ({ isFullView = false }) => {
       toolbar: {
         show: false
       },
-      background: 'transparent'
+      background: chartType === 'candlestick' ? '#181C20' : 'transparent'
     },
     theme: {
       mode: 'dark'
@@ -62,7 +73,7 @@ const PriceChart = ({ isFullView = false }) => {
       }
     },
     stroke: {
-      curve: 'smooth',
+      curve: 'smooth' as const,
       width: chartType === 'line' ? 2 : 1
     },
     xaxis: {
@@ -81,7 +92,7 @@ const PriceChart = ({ isFullView = false }) => {
         style: {
           colors: '#fff'
         },
-        formatter: (value) => `${value.toFixed(2)}`
+        formatter: (value: number) => `${value.toFixed(2)}`
       }
     },
     plotOptions: {
@@ -94,56 +105,19 @@ const PriceChart = ({ isFullView = false }) => {
           useFillColor: true
         }
       }
-    },
-    annotations: {
-      points: [
-        {
-          x: new Date().getTime(),
-          y: 93999.09,
-          marker: {
-            size: 0
-          },
-          label: {
-            text: 'LIVE BITCOIN $93,999.09',
-            style: {
-              background: '#fff',
-              color: '#000',
-              padding: {
-                left: 10,
-                right: 10,
-                top: 5,
-                bottom: 5
-              },
-              borderRadius: 5
-            },
-            offsetY: 0
-          }
-        }
-      ]
-    },
-    tooltip: {
-      theme: 'dark',
-      x: {
-        format: 'HH:mm:ss'
-      }
     }
   };
 
-  const series = chartType === 'line' 
-    ? [{
-        name: 'Price',
-        data: chartData
-      }]
-    : [{
-        name: 'Bitcoin',
-        data: chartData
-      }];
+  const containerClasses = cn(
+    "relative rounded-lg p-4 transition-all duration-300",
+    chartType === 'line' 
+      ? "bg-gradient-to-b from-green-900 via-yellow-900 to-red-900" 
+      : "bg-[#181C20]",
+    isFullView ? "w-full lg:w-4/5 mx-auto" : "w-full"
+  );
 
   return (
-    <div className={cn(
-      "bg-gradient-to-b from-green-900 via-yellow-900 to-red-900 rounded-lg p-4",
-      isFullView ? "w-full lg:w-4/5 mx-auto" : "w-full"
-    )}>
+    <div className={containerClasses}>
       <div className="flex flex-wrap items-center justify-between mb-4 text-white text-xs md:text-sm">
         <div className="flex gap-2 md:gap-4">
           <button className="hover:bg-white/10 px-2 md:px-3 py-1 rounded">BTC 1 SEC</button>
@@ -152,7 +126,7 @@ const PriceChart = ({ isFullView = false }) => {
           <button className="hover:bg-white/10 px-2 md:px-3 py-1 rounded">60 SEC</button>
           <button className="hover:bg-white/10 px-2 md:px-3 py-1 rounded">120 SEC</button>
         </div>
-        <div className="flex gap-2 md:gap-4">
+        <div className="flex gap-2 md:gap-4 items-center">
           <button 
             onClick={() => setChartType('line')}
             className={cn("px-2 md:px-3 py-1 rounded", 
@@ -171,10 +145,18 @@ const PriceChart = ({ isFullView = false }) => {
           </button>
         </div>
       </div>
+      
+      <button 
+        onClick={onToggleFullscreen}
+        className="absolute top-4 right-4 text-white hover:bg-white/10 p-1 rounded-lg z-10"
+      >
+        <Maximize2 size={20} />
+      </button>
+
       <div className="h-64 md:h-80 w-full">
         <ReactApexChart
           options={chartOptions}
-          series={series}
+          series={[{ data: chartData }]}
           type={chartType}
           height="100%"
           width="100%"

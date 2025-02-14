@@ -1,5 +1,3 @@
-// FullView.tsx
-import React from 'react';
 import Header from '../Header';
 import  Timer  from './Timer';
 import PriceChart from './PriceChart';
@@ -26,12 +24,12 @@ const FullView = () => {
           </div>
 
           {/* Chart */}
-          <PriceChart isFullView={true} />
+          <PriceChart isFullView={true} onToggleFullscreen={() => {}} />
 
           {/* Action Buttons */}
           <div className="flex justify-center gap-4 mt-6">
             <button className="w-40 h-12 bg-green-500 rounded-lg">
-              <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-b-[16px] border-b-white" />
+              <div className="w-0 h-0 mx-auto border-x-8 border-x-tr ansparent border-b-[16px] border-b-white" />
             </button>
             <button className="w-40 h-12 bg-red-500 rounded-lg">
               <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-t-[16px] border-t-white" />
