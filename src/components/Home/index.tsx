@@ -76,7 +76,6 @@ const MetapredictGame = () => {
             <FullView />
           ) : (
 
-        
             <>
               {/* Desktop Layout */}
               <div className="hidden lg:grid grid-cols-[1fr_2fr_1fr] gap-11">
@@ -108,5 +107,4 @@ const MetapredictGame = () => {
     </div>
   );
 };
-
 export default MetapredictGame;
