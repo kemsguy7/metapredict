@@ -4,10 +4,10 @@ import PriceChart from './PriceChart';
 
 const FullView = () => {
   return (
-    <div className="min-h-screen bg-[#181C20]">
+    <div className="min-h-screen bg-[rgb(24,28,32)]">
       <Header />
       <main className="bg-[#212529] min-h-[calc(100vh-80px)] px-4 py-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full md:max-w-[90%] mx-auto">
           {/* Investment Stats */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div>

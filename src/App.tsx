@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation,  } from "react-router-dom";
-import MetapredictGame from "./components/Home/index";
+import FullView from "./components/Home/FullView";
 
 
 // import Navbar from "./components/Navbar";
@@ -19,7 +19,7 @@ const App: React.FC = () => {
       <Routes location={location}>
         <Route path="/" element={<Home />} />
        
-        <Route path="/full-view" element={<MetapredictGame />} />
+        <Route path="/full-view" element={<FullView />} />
         
       
        

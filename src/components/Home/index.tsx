@@ -79,7 +79,7 @@ const MetapredictGame = () => {
       <Header />
       <main className="bg-[#212529] min-h-[calc(100vh-80px)]">
         <div className="container mx-auto px-4 py-6">
-          {isFullView ? (
+          {/* {isFullView ? (
             // Full View Layout
             <div className="space-y-6">
               <InvestmentStats />
@@ -98,7 +98,7 @@ const MetapredictGame = () => {
                 </button>
               </div>
             </div>
-          ) : (
+          ) : ( */}
             <>
               {/* Desktop Layout */}
               <div className="hidden lg:grid grid-cols-[1fr_2fr_1fr] gap-6">
@@ -124,7 +124,7 @@ const MetapredictGame = () => {
                 <AmountSelector />
               </div>
             </>
-          )}
+          {/* )} */}
         </div>
       </main>
     </div>

@@ -6,7 +6,7 @@ const Header = () => {
     <div className="w-full bg-[#181C20] px-4 lg:px-6 py-4">
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-between items-center">
         {/* Logo */}
-        <img src={Logo} alt="META PREDICT" className="h-8 mb-4 lg:mb-0" />
+        <img src={Logo} alt="META PREDICT" className="h-16 mb-4 lg:mb-0" />
         
         {/* Center Controls - Desktop */}
         <div className="hidden lg:flex items-center gap-4 absolute left-1/2 transform -translate-x-1/2">

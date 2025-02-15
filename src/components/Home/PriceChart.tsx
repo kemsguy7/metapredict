@@ -113,7 +113,7 @@ const PriceChart = ({ isFullView = false, onToggleFullscreen }: PriceChartProps)
     chartType === 'line' 
       ? "bg-gradient-to-b from-green-900 via-yellow-900 to-red-900" 
       : "bg-[#181C20]",
-    isFullView ? "w-full lg:w-4/5 mx-auto" : "w-full"
+    isFullView ? "w-full  mx-auto" : "w-full"
   );
 
   return (
