@@ -6,8 +6,6 @@ import Timer from './Timer';
 import PriceChart from './PriceChart';
 import { cn } from '../../lib/utils';
 import FullView from './FullView';
-import {handleToggleFullscreen} from '../../lib/utils';
-
 
 const AmountSelector = () => {
   const [selectedAmount, setSelectedAmount] = useState(1);
@@ -75,26 +73,7 @@ const MetapredictGame = () => {
       <Header />
       <main className="bg-[#212529] min-h-[calc(100vh-80px)]">
         <div className="container mx-auto px-4 py-6">
-          {/* {isFullView ? (
-            // Full View Layout
-            <div className="space-y-6">
-              <InvestmentStats />
-              <div className="w-full lg:w-4/5 mx-auto transition-all duration-300 ease-in-out">
-                <PriceChart 
-                  isFullView={true} 
-                  onToggleFullscreen={handleToggleFullscreen}
-                />
-              </div>
-              <div className="flex justify-center gap-4">
-                <button className="w-40 h-12 bg-green-500 rounded-lg hover:bg-green-600 transition-colors">
-                  <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-b-[16px] border-b-white" />
-                </button>
-                <button className="w-40 h-12 bg-red-500 rounded-lg hover:bg-red-600 transition-colors">
-                  <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-t-[16px] border-t-white" />
-                </button>
-              </div>
-            </div>
-          ) : ( */}
+         
           {isFullView ?(
             <FullView />
           ) : (
@@ -107,7 +86,7 @@ const MetapredictGame = () => {
                 <div className="space-y-6">
                   <InvestmentStats />
                   <GameStats />
-                  <PriceChart onToggleFullscreen={handleToggleFullscreen} />
+                  <PriceChart />
                   <AmountSelector />
                 </div>
                 <Pool type="down" players={7} treasury={0} />
@@ -116,7 +95,7 @@ const MetapredictGame = () => {
               {/* Mobile Layout */}
               <div className="lg:hidden space-y-6">
                 <InvestmentStats />
-                <PriceChart onToggleFullscreen={handleToggleFullscreen} />
+                <PriceChart />
                 <GameStats />
                 <div className="grid grid-cols-2 gap-4">
                   <Pool type="up" players={7} treasury={0} />

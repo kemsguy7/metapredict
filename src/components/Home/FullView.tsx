@@ -1,7 +1,5 @@
 import  Timer  from './Timer';
 import PriceChart from './PriceChart';
-import { handleToggleFullscreen } from '../../lib/utils';
-
 
 const FullView = () => {
   return (
@@ -25,7 +23,7 @@ const FullView = () => {
           </div>
 
           {/* Chart */}
-          <PriceChart isFullView={true} onToggleFullscreen={handleToggleFullscreen} />
+          <PriceChart isFullView={true}  />
 
           {/* Action Buttons */}
           <div className="flex justify-center gap-4 mt-6">
