@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import Pool from './Pool';
 import Timer from './Timer';
 import PriceChart from './PriceChart';
 import { cn } from '../../lib/utils';
+import FullView from './FullView';
+import {handleToggleFullscreen} from '../../lib/utils';
+
 
 const AmountSelector = () => {
   const [selectedAmount, setSelectedAmount] = useState(1);
@@ -62,17 +65,10 @@ const GameStats = () => {
 };
 
 const MetapredictGame = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const isFullView = location.pathname === '/full-view';
 
-  const handleToggleFullscreen = () => {
-    if (isFullView) {
-      navigate('/');
-    } else {
-      navigate('/full-view');
-    }
-  };
+  
 
   return (
     <div className="min-h-screen bg-[#181C20]">
@@ -99,6 +95,11 @@ const MetapredictGame = () => {
               </div>
             </div>
           ) : ( */}
+          {isFullView ?(
+            <FullView />
+          ) : (
+
+        
             <>
               {/* Desktop Layout */}
               <div className="hidden lg:grid grid-cols-[1fr_2fr_1fr] gap-6">
@@ -124,7 +125,7 @@ const MetapredictGame = () => {
                 <AmountSelector />
               </div>
             </>
-          {/* )} */}
+  )}
         </div>
       </main>
     </div>

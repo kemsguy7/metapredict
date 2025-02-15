@@ -1,5 +1,10 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { useNavigate } from 'react-router-dom';
+
+
+const isFullView = location.pathname === '/full-view';
+
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -40,3 +45,12 @@ export const formatPercentage = (value: number): string => {
     maximumFractionDigits: 1
   }).format(value / 100);
 }
+
+export const handleToggleFullscreen = () => {
+  const navigate = useNavigate();
+  if (isFullView) {
+    navigate('/');
+  } else {
+    navigate('/full-view');
+  }
+};

@@ -1,13 +1,14 @@
-import Header from '../Header';
 import  Timer  from './Timer';
 import PriceChart from './PriceChart';
+import { handleToggleFullscreen } from '../../lib/utils';
+
 
 const FullView = () => {
   return (
     <div className="min-h-screen bg-[rgb(24,28,32)]">
-      <Header />
+    
       <main className="bg-[#212529] min-h-[calc(100vh-80px)] px-4 py-6">
-        <div className="w-full md:max-w-[90%] mx-auto">
+        <div className="w-full  mx-auto">
           {/* Investment Stats */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div>
@@ -24,12 +25,12 @@ const FullView = () => {
           </div>
 
           {/* Chart */}
-          <PriceChart isFullView={true} onToggleFullscreen={() => {}} />
+          <PriceChart isFullView={true} onToggleFullscreen={handleToggleFullscreen} />
 
           {/* Action Buttons */}
           <div className="flex justify-center gap-4 mt-6">
             <button className="w-40 h-12 bg-green-500 rounded-lg">
-              <div className="w-0 h-0 mx-auto border-x-8 border-x-tr ansparent border-b-[16px] border-b-white" />
+              <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-b-[16px] border-b-white" />
             </button>
             <button className="w-40 h-12 bg-red-500 rounded-lg">
               <div className="w-0 h-0 mx-auto border-x-8 border-x-transparent border-t-[16px] border-t-white" />
