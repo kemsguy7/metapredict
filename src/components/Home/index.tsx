@@ -66,13 +66,11 @@ const MetapredictGame = () => {
   const location = useLocation();
   const isFullView = location.pathname === '/full-view';
 
-  
-
   return (
     <div className="min-h-screen bg-[#181C20]">
       <Header />
-      <main className="bg-[#212529] min-h-[calc(100vh-80px)]">
-        <div className="container mx-auto px-4 py-6">
+      <main className="bg-[#212529] min-h-[calc(100vh-80px)] ">
+        <div className=" md:mx-4 px-4 py-6">
          
           {isFullView ?(
             <FullView />
@@ -81,7 +79,7 @@ const MetapredictGame = () => {
         
             <>
               {/* Desktop Layout */}
-              <div className="hidden lg:grid grid-cols-[1fr_2fr_1fr] gap-6">
+              <div className="hidden lg:grid grid-cols-[1fr_2fr_1fr] gap-11">
                 <Pool type="up" players={7} treasury={0} />
                 <div className="space-y-6">
                   <InvestmentStats />
