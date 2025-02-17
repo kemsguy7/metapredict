@@ -5,7 +5,7 @@ import { cn } from "../../lib/utils";
 import { ApexOptions } from "apexcharts";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const API_KEY = import.meta.env.VITE_BINANCE_API_KEY;
+// const API_KEY = import.meta.env.VITE_BINANCE_API_KEY;
 const WS_BASE_URL = "wss://stream.binance.com:443/ws/kline_";
 const BASE_URL = "https://api.binance.com/api/v3";
 
