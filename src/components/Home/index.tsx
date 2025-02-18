@@ -2,7 +2,8 @@ import { useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import Pool from './Pool';
-import Timer from './Timer';
+import InvestmentStats from './InvestmenStats';
+
 import PriceChart from './PriceChart';
 import { cn } from '../../lib/utils';
 import FullView from './FullView';
@@ -31,28 +32,11 @@ const AmountSelector = () => {
   );
 };
 
-const InvestmentStats = () => {
-  return (
-    <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-      <div>
-        <p className="text-white text-sm md:text-base">YOUR INVESTMENT</p>
-        <p className="text-[#F58634] text-xl md:text-2xl font-bold">$1</p>
-        <p className="text-green-500 text-sm md:text-base">UP WINS 200%</p>
-      </div>
-      <Timer />
-      <div className="text-right">
-        <p className="text-white text-sm md:text-base">POTENTIAL RETURN</p>
-        <p className="text-[#F58634] text-xl md:text-2xl font-bold">$1</p>
-        <p className="text-red-500 text-sm md:text-base">DOWN WINS 200%</p>
-      </div>
-    </div>
-  );
-};
 
 const GameStats = () => {
   return (
     <div className="bg-black/30 rounded-lg p-4">
-      <div className="flex flex-col md:flex-row justify-between text-white text-sm gap-2 md:gap-0">
+      <div className="flex justify-between text-white text-sm gap-2 md:gap-0">
         <span>24H PLAYERS: <span className="text-[#F58634]">70</span></span>
         <span>24H WIN RATIO: <span className="text-[#F58634]">60.90%</span></span>
         <span>24H WINS PAID: <span className="text-[#F58634]">$71,903</span></span>

@@ -1,5 +1,5 @@
-import  Timer  from './Timer';
 import PriceChart from './PriceChart';
+import InvestmentStats from './InvestmenStats';
 
 const FullView = () => {
   return (
@@ -8,19 +8,7 @@ const FullView = () => {
       <main className="bg-[#212529] min-h-[calc(100vh-80px)] px-4 py-6">
         <div className="w-full  mx-auto">
           {/* Investment Stats */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div>
-              <p className="text-white mb-1">YOUR INVESTMENT</p>
-              <p className="text-[#F58634] text-2xl font-bold">$1</p>
-              <p className="text-green-500">UP WINS 200%</p>
-            </div>
-            <Timer />
-            <div className="text-right">
-              <p className="text-white mb-1">POTENTIAL RETURN</p>
-              <p className="text-[#F58634] text-2xl font-bold">$1</p>
-              <p className="text-red-500">DOWN WINS 200%</p>
-            </div>
-          </div>
+         <InvestmentStats />
 
           {/* Chart */}
           <PriceChart isFullView={true}  />
