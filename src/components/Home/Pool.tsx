@@ -58,13 +58,14 @@ const PlayerCircle = ({ type }: { type: 'up' | 'down' }) => {
 
 const Pool = ({ type, players, treasury }: PoolProps) => {
   const isUp = type === 'up';
-  const borderColor = isUp ? 'border-green-500' : 'border-red-500';
   const textColor = isUp ? 'text-green-500' : 'text-red-500';
 
   return (
     <div className={cn(
-      "rounded-2xl border-4 p-4 h-full flex flex-col",
-      borderColor
+      "rounded-2xl p-4 h-full flex flex-col",
+      // Only show border on md and larger screens, and set color based on type
+      "border-0 md:border-4",
+      isUp ? "md:border-green-500" : "md:border-red-500"
     )}>
       <div className="flex justify-between mb-6">
         <div className={cn("text-2xl font-bold", textColor)}>${treasury}</div>

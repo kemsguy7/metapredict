@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
+import HeaderRow from '../Header/headerRow';
 import Pool from './Pool';
 import InvestmentStats from './InvestmenStats';
-
 import PriceChart from './PriceChart';
 import { cn } from '../../lib/utils';
 import FullView from './FullView';
@@ -32,19 +32,35 @@ const AmountSelector = () => {
   );
 };
 
-
 const GameStats = () => {
   return (
-    <div className="bg-black/30 rounded-lg p-4">
-      <div className="flex justify-between text-white text-sm gap-2 md:gap-0">
-        <span>24H PLAYERS: <span className="text-[#F58634]">70</span></span>
-        <span>24H WIN RATIO: <span className="text-[#F58634]">60.90%</span></span>
-        <span>24H WINS PAID: <span className="text-[#F58634]">$71,903</span></span>
-        <span>ALL TIME WINS PAID: <span className="text-[#F58634]">$1,883,383.99</span></span>
+    <div>
+      {/* Desktop View */}
+      <div className="hidden lg:block">
+       
+        <div className="md:bg-[#181c20] rounded-2xl p-4">
+        <h2 className="text-white text-2xl font-bold text-center mb-4">STATS</h2>
+          <div className="flex justify-between items-center text-white text-base whitespace-nowrap">
+            <div>24H PLAYERS; <span className="text-[#F58634]">70</span></div>
+            <div>24H WIN RATIO; <span className="text-[#F58634]">60.90%</span></div>
+            <div>24H WINS PAID; <span className="text-[#F58634]">$71,903</span></div>
+            <div>ALL TIME WINS PAID; <span className="text-[#F58634]">$1,883,383.99</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile View */}
+      <div className="lg:hidden rounded-lg p-4">
+        <div className="flex justify-between text-white text-sm">
+          <div>24H PLAYERS; <span className="text-[#F58634]">70</span></div>
+          <div>24H WINS PAID; <span className="text-[#F58634]">$71,903</span></div>
+          <div>24H WIN RATIO; <span className="text-[#F58634]">60.90%</span></div>
+        </div>
       </div>
     </div>
   );
 };
+
 
 const MetapredictGame = () => {
   const location = useLocation();
@@ -53,6 +69,8 @@ const MetapredictGame = () => {
   return (
     <div className="min-h-screen bg-[#181C20]">
       <Header />
+      <HeaderRow />
+
       <main className="bg-[#212529] min-h-[calc(100vh-80px)] ">
         <div className=" md:mx-4 px-4 py-6">
          

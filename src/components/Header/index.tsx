@@ -1,9 +1,9 @@
 
-import { Timer, Wallet, MessageCircle } from 'lucide-react';
+import { Timer, Wallet} from 'lucide-react';
 import Logo from '../../assets/images/meta-predict-logo.png'
 const Header = () => {
   return (
-    <div className="w-full bg-[#181C20] px-4 lg:px-6 py-4">
+    <div className="w-full px-4 bg-[#181C20] lg:px-6 py-4 ">
       <div className="max-w-[1440px] mx-auto">
         {/* Desktop Layout */}
         <div className="hidden lg:flex flex-row justify-between items-center">
@@ -37,7 +37,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden">
+        <div className="lg:hidden ">
           {/* Top Row */}
           <div className="flex items-center justify-between mb-4">
             {/* Logo */}
@@ -58,21 +58,10 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Bottom Row */}
-          <div className="flex items-center justify-between">
-            <div className="flex gap-4">
-              <button className="px-4 py-1.5 border-2 border-white rounded-xl text-white text-sm">
-                SMART COPY
-              </button>
-              <button className="px-4 py-1.5 border-2 border-white rounded-xl text-white text-sm">
-                DEVELOPERS
-              </button>
-            </div>
-            <span className="text-white text-sm">TIME LEFT</span>
-            <MessageCircle className="w-5 h-5 text-white" />
-          </div>
+          
         </div>
       </div>
+    
     </div>
   );
 };
