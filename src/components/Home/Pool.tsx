@@ -62,7 +62,7 @@ const Pool = ({ type, players, treasury }: PoolProps) => {
 
   return (
     <div className={cn(
-      "rounded-2xl p-4 h-full flex flex-col",
+      "rounded-2xl p-4 h-full md:bg-[#181c20] flex flex-col",
       // Only show border on md and larger screens, and set color based on type
       "border-0 md:border-4",
       isUp ? "md:border-green-500" : "md:border-red-500"
